@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Stick Counter</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 ตรวจจับจำนวนแท่งไม้</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">อัปโหลดและตรวจจับ</button>
+        </form>
+
+        {% if count %}
+        <h2>จำนวนแท่งไม้ที่ตรวจพบ: {{ count }}</h2>
+        <img src="/results/{{ result }}" width="500">
+        {% endif %}
+    </div>
+</body>
+</html>
