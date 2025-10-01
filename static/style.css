@@ -1,24 +1,104 @@
+/* ---------------------------------- */
+/* Modern Dark Theme Variables */
+/* ---------------------------------- */
+:root {
+    --bg-color: #121212; /* พื้นหลังโดยรวม: ดาร์กเกรย์เข้ม */
+    --container-bg: #1e1e1e; /* พื้นหลัง Container: ดาร์กเกรย์กลาง (ยกขึ้นมาเล็กน้อย) */
+    --text-color: #e0e0e0; /* สีข้อความหลัก: ไลท์เกรย์ */
+    --accent-color: #00aaff; /* สีเน้น (ปุ่ม/หัวข้อ): ฟ้าสดใส */
+    --accent-hover: #0088cc; /* สีเน้นเมื่อชี้เมาส์ */
+    --shadow-color: rgba(0, 170, 255, 0.1); /* เงาเรืองแสงบางๆ */
+    --border-radius: 12px;
+}
+
+/* ---------------------------------- */
+/* Base Styles */
+/* ---------------------------------- */
 body {
     font-family: "Sarabun", sans-serif;
-    background: #f5f5f5;
+    background: var(--bg-color); 
+    color: var(--text-color); 
     text-align: center;
-    padding: 20px;
+    padding: 50px 20px; 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    /* ปรับปรุงการจัดวางให้ดูดีขึ้นบนหน้าจอทุกขนาด */
 }
+
 .container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    display: inline-block;
+    background: var(--container-bg); 
+    padding: 30px; 
+    border-radius: var(--border-radius);
+    /* เพิ่มเงาแบบมีมิติและเรืองแสงบางๆ ใน Dark Mode */
+    box-shadow: 0 0 15px var(--shadow-color), 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
 }
-button {
-    padding: 10px 20px;
-    background: #007bff;
-    border: none;
+
+h1 {
+    color: var(--accent-color); /* เน้นหัวข้อด้วยสีเน้น */
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+/* ---------------------------------- */
+/* Form and Input Styles */
+/* ---------------------------------- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #444; 
     border-radius: 8px;
-    color: white;
+    background: #333; /* พื้นหลังสำหรับ Input */
+    color: var(--text-color);
+    width: 100%;
+    max-width: 300px;
     cursor: pointer;
 }
+
+button {
+    padding: 12px 25px; 
+    background: var(--accent-color); 
+    border: none;
+    border-radius: 8px;
+    color: var(--container-bg); /* ใช้สีพื้นหลัง Container เป็นสีตัวอักษรเพื่อตัดกัน */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    max-width: 300px;
+}
+
 button:hover {
-    background: #0056b3;
+    background: var(--accent-hover);
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.4);
+}
+
+img {
+    margin-top: 20px;
+    border-radius: 8px;
+    max-width: 100%; 
+    height: auto;
+    border: 1px solid #333; /* ใส่กรอบให้รูปภาพ */
 }
